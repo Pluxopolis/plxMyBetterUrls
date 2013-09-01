@@ -1,0 +1,9 @@
+## Version 1.2 (29/08/2013) ##
+[+] Redirection 301 si accès à partir des anciennes urls pour favoriser le référencement
+
+## Version 1.1 (29/08/2013) ##
+BUG: pas de prise en compte de la pagination en mode categorie
+
+## Version 1.0 (01/05/2013) ##
+version initiale
+
