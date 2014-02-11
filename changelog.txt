@@ -1,3 +1,6 @@
+## Version 1.3 (11/02/2014) ##
+BUG Paramètres dans les urls non pris en compte
+
 ## Version 1.2 (29/08/2013) ##
 [+] Redirection 301 si accès à partir des anciennes urls pour favoriser le référencement
 
