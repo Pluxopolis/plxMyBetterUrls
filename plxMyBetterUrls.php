@@ -15,20 +15,20 @@ class plxMyBetterUrls extends plxPlugin {
 	 **/
 	public function __construct($default_lang) {
 
-		# appel du constructeur de la classe plxPlugin (obligatoire)
-		parent::__construct($default_lang);
+        # appel du constructeur de la classe plxPlugin (obligatoire)
+        parent::__construct($default_lang);
 
 		# droits pour accèder à la page config.php du plugin
 		$this->setConfigProfil(PROFIL_ADMIN);
 
-		# déclaration des hooks
+        # déclaration des hooks
 		$this->addHook('plxMotorConstruct', 'plxMotorConstruct');
 		$this->addHook('plxMotorConstructLoadPlugins', 'Redirect301');
 		$this->addHook('IndexEnd', 'RewriteUrls');
 		$this->addHook('FeedEnd', 'RewriteUrls');
 		$this->addHook('SitemapEnd', 'RewriteUrls');
 		$this->addHook('AdminPrepend', 'AdminPrepend');
-	}
+    }
 
 	/**
 	 * Méthode qui fait ue redirection 301 si accès à PluXml à partir des anciennes url
@@ -64,15 +64,21 @@ class plxMyBetterUrls extends plxPlugin {
 		echo '<?php
 		if(empty($this->get))
 			return;
-
+	
 		# récupération url
 		$url = explode("/", $_SERVER["QUERY_STRING"]);
-		$url = explode("&", $url[0]);
-		$get = $url[0];
-
+		
+		# pour compatibilité avec le plugin plxMyMultLingue
+		if(!defined("PLX_MYMULTILINGUE"))
+			$get = $url[0];
+		else {
+			$array =  explode(",", PLX_MYMULTILINGUE);
+			$get = in_array($url[0], $array) ? $url[1] : $url[0];
+		}
+			
 		# récupération pagination si présente
 		$page="";
-		if(isset($url[1]) AND !empty($url[1]) AND preg_match("/(page[0-9])+/", $url[1], $capture)) {
+		if(isset($url[1]) AND !empty($url[1]) AND preg_match("/(page[0-9]+)/", $url[1], $capture)) {
 			$page = "/".$capture[0];
 		}
 
