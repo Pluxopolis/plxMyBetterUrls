@@ -18,7 +18,7 @@ class plxMyBetterUrls extends plxPlugin {
         # appel du constructeur de la classe plxPlugin (obligatoire)
         parent::__construct($default_lang);
 
-		# droits pour accèder à la page config.php du plugin
+		# droits pour accéder à la page config.php du plugin
 		$this->setConfigProfil(PROFIL_ADMIN);
 
         # déclaration des hooks
@@ -31,7 +31,7 @@ class plxMyBetterUrls extends plxPlugin {
     }
 
 	/**
-	 * Méthode qui fait ue redirection 301 si accès à PluXml à partir des anciennes url
+	 * Méthode qui fait une redirection 301 si accès à PluXml à partir des anciennes url
 	 *
 	 * @author	Stephane F
 	 **/
@@ -75,10 +75,10 @@ class plxMyBetterUrls extends plxPlugin {
 			$array =  explode(",", PLX_MYMULTILINGUE);
 			$get = in_array($url[0], $array) ? $url[1] : $url[0];
 		}
-			
+		
 		# récupération pagination si présente
 		$page="";
-		if(isset($url[1]) AND !empty($url[1]) AND preg_match("/(page[0-9]+)/", $url[1], $capture)) {
+		if(preg_match("/(page[0-9]+)/", $this->get, $capture)) {
 			$page = "/".$capture[0];
 		}
 
