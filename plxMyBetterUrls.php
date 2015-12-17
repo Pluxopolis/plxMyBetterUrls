@@ -15,20 +15,20 @@ class plxMyBetterUrls extends plxPlugin {
 	 **/
 	public function __construct($default_lang) {
 
-        # appel du constructeur de la classe plxPlugin (obligatoire)
-        parent::__construct($default_lang);
+		# appel du constructeur de la classe plxPlugin (obligatoire)
+		parent::__construct($default_lang);
 
 		# droits pour accéder à la page config.php du plugin
 		$this->setConfigProfil(PROFIL_ADMIN);
 
-        # déclaration des hooks
+		# déclaration des hooks
 		$this->addHook('plxMotorConstruct', 'plxMotorConstruct');
 		$this->addHook('plxMotorConstructLoadPlugins', 'Redirect301');
 		$this->addHook('IndexEnd', 'RewriteUrls');
 		$this->addHook('FeedEnd', 'RewriteUrls');
 		$this->addHook('SitemapEnd', 'RewriteUrls');
 		$this->addHook('AdminPrepend', 'AdminPrepend');
-    }
+	}
 
 	/**
 	 * Méthode qui fait une redirection 301 si accès à PluXml à partir des anciennes url
@@ -38,6 +38,12 @@ class plxMyBetterUrls extends plxPlugin {
 	public function Redirect301() {
 
 		echo '<?php
+		if(!defined("PLX_ADMIN") AND substr(str_replace($_SERVER["QUERY_STRING"], "", $_SERVER["REQUEST_URI"]),-1)=="?") {
+			# redirection si lien http://server.com/?contenu vers http://server.com/contenu
+			header("Status: 301 Moved Permanently", false, 301);
+			header("Location: ".$this->urlRewrite($_SERVER["QUERY_STRING"]));
+			exit();
+		}
 		if(preg_match("/^(article|static|categorie)[0-9]+\/([a-z0-9-]+)(\/page[0-9]+)?/", $this->get, $capture)) {
 			$page=isset($capture[3])?$capture[3]:"";
 			header("Status: 301 Moved Permanently", false, 301);
@@ -53,7 +59,6 @@ class plxMyBetterUrls extends plxPlugin {
 
 	}
 
-
 	/**
 	 * Méthode qui recrée l'url de l'article, page statique ou catégorie au format natif de PluXml
 	 *
@@ -64,10 +69,10 @@ class plxMyBetterUrls extends plxPlugin {
 		echo '<?php
 		if(empty($this->get))
 			return;
-	
+
 		# récupération url
 		$url = explode("/", $_SERVER["QUERY_STRING"]);
-		
+
 		# pour compatibilité avec le plugin plxMyMultLingue
 		if(!defined("PLX_MYMULTILINGUE"))
 			$get = $url[0];
@@ -75,7 +80,7 @@ class plxMyBetterUrls extends plxPlugin {
 			$array =  explode(",", PLX_MYMULTILINGUE);
 			$get = in_array($url[0], $array) ? $url[1] : $url[0];
 		}
-		
+
 		# récupération pagination si présente
 		$page="";
 		if(preg_match("/(page[0-9]+)/", $this->get, $capture)) {
