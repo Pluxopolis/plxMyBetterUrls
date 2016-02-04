@@ -1,3 +1,9 @@
+## Version 1.5 (04/02/2016) ##
+[+] Compatibilité PluXml 5.5
+[+] Personnalisation du format d'url (voir écran de config du plugin)
+BUG mauvaise compatibilité avec le plugin MultiLingue 
+BUG mauvaise redirection apres envoi d'un commentaire
+
 ## Version 1.4.3 (15/12/2015) ##
 [+] Gestion des liens http://server.com/?contenu avec redirection 301 vers http://server.com/contenu
 
