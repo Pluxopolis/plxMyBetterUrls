@@ -1,3 +1,6 @@
+## Version 1.5.1 (12/02/2016) ##
+BUG Mauvaise gestion de l'extension dans l'administration du plugin
+
 ## Version 1.5 (04/02/2016) ##
 [+] Compatibilité PluXml 5.5
 [+] Personnalisation du format d'url (voir écran de config du plugin)

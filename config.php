@@ -8,7 +8,8 @@ if(!empty($_POST)) {
 	if($_POST['ext_url'][0]!='.' AND $_POST['ext_url'][0]!='')
 		plxMsg::Error($plxPlugin->getLang('L_BAD_URL_EXTENSION'));
 	else {
-		$plxPlugin->setParam('ext_url', '.'.plxUtils::title2url($_POST['ext_url']), 'string');
+		$ext = ($_POST['ext_url']!=''? '.'.plxUtils::title2url($_POST['ext_url']):'');
+		$plxPlugin->setParam('ext_url', $ext, 'string');
 		$plxPlugin->setParam('format_article', plxUtils::title2url($_POST['format_article']), 'string');
 		$plxPlugin->setParam('format_category', plxUtils::title2url($_POST['format_category']), 'string');
 		$plxPlugin->setParam('format_static', plxUtils::title2url($_POST['format_static']), 'string');
