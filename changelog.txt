@@ -1,3 +1,7 @@
+## Version 1.5.2 (25/10/2016) ##
+[+] traduction occitane (contribution Quent-in)
+BUG Administration > Pages Statiques : Impossible d'accéder à la page statique à partir du lien Voir 
+
 ## Version 1.5.1 (12/02/2016) ##
 BUG Mauvaise gestion de l'extension dans l'administration du plugin
 

@@ -33,7 +33,6 @@ class plxMyBetterUrls extends plxPlugin {
 		$this->addHook('IndexEnd', 'RewriteUrls');
 		$this->addHook('FeedEnd', 'RewriteUrls');
 		$this->addHook('SitemapEnd', 'RewriteUrls');
-		$this->addHook('AdminPrepend', 'AdminPrepend');
 	}
 
 	/**
@@ -111,6 +110,9 @@ class plxMyBetterUrls extends plxPlugin {
 		# pages statiques
 		foreach($this->aStats as $numstat => $stat) {
 			$link = "'.$this->lang.$this->static.'".$stat["url"]."'.$this->getParam('ext_url').'";
+			if($get==$stat["url"]) {
+				$get = "'.$this->lang.$this->static.'".$get;
+			}
 			if($link==$get) {
 				$this->get = "'.$this->lang.'static".intval($numstat)."/".$stat["url"];
 				return;
