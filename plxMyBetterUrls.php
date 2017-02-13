@@ -100,7 +100,7 @@ class plxMyBetterUrls extends plxPlugin {
 
 		# récupération de la pagination si présente
 		$page="";
-		if(preg_match("/(page[0-9]+)/", $this->get, $capture)) {
+		if(preg_match("/(page[0-9]+)$/", $this->get, $capture)) {
 			$page = "/".$capture[0];
 		}
 
