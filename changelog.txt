@@ -1,4 +1,4 @@
-## Version 1.5.4 (14/02/2017) ##
+## Version 1.5.4 (01/03/2017) ##
 [+] Compatibilité plxMyMultiLingue 0.8
 
 ## Version 1.5.3 (13/02/2017) ##
