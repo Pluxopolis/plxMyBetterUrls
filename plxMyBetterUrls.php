@@ -33,6 +33,7 @@ class plxMyBetterUrls extends plxPlugin {
 		$this->addHook('IndexEnd', 'RewriteUrls');
 		$this->addHook('FeedEnd', 'RewriteUrls');
 		$this->addHook('SitemapEnd', 'RewriteUrls');
+		$this->addHook('plxFeedPreChauffageBegin', 'plxFeedPreChauffageBegin');
 	}
 
 	/**
@@ -139,7 +140,6 @@ class plxMyBetterUrls extends plxPlugin {
 				}
 			}
 		}
-
 		?>';
 	}
 
@@ -155,6 +155,19 @@ class plxMyBetterUrls extends plxPlugin {
 			$output = preg_replace("/static[0-9]+\/([a-z0-9-]+)/", "'.$this->static.'$1'.$this->getParam('ext_url').'", $output);
 		 ?>';
 
+	}
+
+	public function plxFeedPreChauffageBegin() {
+		# flux rss des articles d'une categorie
+		echo '<?php
+		if(preg_match("#^rss/'.$this->category.'([a-z0-9-]+)#", $this->get, $capture)) {
+			foreach($this->aCats as $numcat => $cat) {
+				if($cat["url"]==$capture[1]) {
+					$this->get = "rss/categorie".intval($numcat);
+				}
+			}
+		}
+		?>';
 	}
 }
 ?>

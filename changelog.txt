@@ -1,12 +1,13 @@
-## Version 1.5.4 (01/03/2017) ##
+## Version 1.5.4 (10/03/2017) ##
 [+] Compatibilité plxMyMultiLingue 0.8
+Bug flux rss des articles d'une catégorie
 
 ## Version 1.5.3 (13/02/2017) ##
 BUG Mauvaise prise en compte de la pagination
 
 ## Version 1.5.2 (25/10/2016) ##
 [+] traduction occitane (contribution Quent-in)
-BUG Administration > Pages Statiques : Impossible d'accéder à la page statique à partir du lien Voir 
+BUG Administration > Pages Statiques : Impossible d'accéder à la page statique à partir du lien Voir
 
 ## Version 1.5.1 (12/02/2016) ##
 BUG Mauvaise gestion de l'extension dans l'administration du plugin
@@ -14,7 +15,7 @@ BUG Mauvaise gestion de l'extension dans l'administration du plugin
 ## Version 1.5 (04/02/2016) ##
 [+] Compatibilité PluXml 5.5
 [+] Personnalisation du format d'url (voir écran de config du plugin)
-BUG mauvaise compatibilité avec le plugin MultiLingue 
+BUG mauvaise compatibilité avec le plugin MultiLingue
 BUG mauvaise redirection apres envoi d'un commentaire
 
 ## Version 1.4.3 (15/12/2015) ##
