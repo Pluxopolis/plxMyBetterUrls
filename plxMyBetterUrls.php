@@ -87,9 +87,10 @@ class plxMyBetterUrls extends plxPlugin {
 
 		# récupération de la langue si plugin plxMyMultilingue présent
 		$this->lang="";
-		if(defined('PLX_MYMULTILINGUE')) {
-			if(isset($_SESSION['default_lang']) AND $_SESSION['default_lang']!=PLX_MYMULTILINGUE['lang']) {
-				$this->lang = PLX_MYMULTILINGUE['lang'].'/';
+		$lang = plxMyMultiLingue::_Lang();
+		if(!empty($lang)) {
+			if(isset($_SESSION['default_lang']) AND $_SESSION['default_lang']!=$lang) {
+				$this->lang = $lang.'/';
 			}
 		}
 
