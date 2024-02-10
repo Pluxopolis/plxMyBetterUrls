@@ -13,6 +13,12 @@ class plxMyBetterUrls extends plxPlugin {
 	 * @return	stdio
 	 * @author	Stephane F
 	 **/
+
+	public $article;
+	public $category;
+	public $static;
+	public $lang;
+	
 	public function __construct($default_lang) {
 
 		# appel du constructeur de la classe plxPlugin (obligatoire)
