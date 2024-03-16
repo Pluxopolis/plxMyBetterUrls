@@ -1,3 +1,9 @@
+## Version 2.0 (14/03/2024) ##
+Compatible uniquement avec les version 5.9.0 en dev avec urls internationnalisées
+BUG réecriture des urls uniqueement si l'urlrewriting est activé
+Ajout page auteur et mots clés
+Option d'ajout d'une extension selon le type de page
+
 ## Version 1.5.5 (10/04/2017) ##
 BUG tableau PLX_MYMULTILINGUE non géré avec php 5.x+
 

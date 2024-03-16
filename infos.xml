@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document>
-	<title><![CDATA[MyBetterUrls]]></title>
+	<title><![CDATA[MyBetterUrls 5.9.0 PR795 + ]]></title>
 	<author><![CDATA[Stephane F.]]></author>
-	<version>1.5.5</version>
-	<date>10/04/2017</date>
+	<version>2.0.0 DEV</version>
+	<date>14/03/2024</date>
 	<site>http://pluxopolis.net/</site>
 	<description><![CDATA[Amélioration des urls de PluXml]]></description>
-	<requirements></requirements>
+	<requirements>5.9.0 en develloppement à partir du PR795</requirements>
 </document>
