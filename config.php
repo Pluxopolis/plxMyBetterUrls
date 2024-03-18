@@ -87,6 +87,16 @@
 		e.innerHTML = '';
 		}
 	}
+	for (let e of document.querySelectorAll('[type="checkbox"][name^="ext_url"]')) {
+		e.addEventListener('change', function(){
+		let span =  document.querySelector('span.'+this.getAttribute('name'));
+		if(!this.checked){
+			span.innerHTML ='';
+		}  else {
+			span.innerHTML = document.querySelector('#id_ext_url').value;
+		}
+		});  
+	}
 </script>
 <style>
 .grid-2-col {
